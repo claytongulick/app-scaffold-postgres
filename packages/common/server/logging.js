@@ -18,7 +18,7 @@ export default class Logging {
     static getLogger(config) {
         if(this.logger)
             return this.logger;
-        winston.remove('console');
+        //winston.remove('console');
         this.logger = winston.createLogger({
             format: winston.format.combine(
                         winston.format.timestamp(),

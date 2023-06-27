@@ -1,4 +1,4 @@
-import * as Twilio from 'twilio';
+import Twilio from 'twilio';
 let twilio = new Twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
 /**

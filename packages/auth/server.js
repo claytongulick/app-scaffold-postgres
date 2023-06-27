@@ -6,12 +6,7 @@
  @author Clay Gulick
  @email clay@ratiosoftware.com
 **/
-//require('newrelic');
-import * as dotenv from 'dotenv';
-import path from 'path';
-dotenv.config({
-    path: path.resolve(__dirname,'..','..','.env')
-});
+import '../../load-env.js';
 import config from './config/config.js';
 import Logging from 'common/server/logging.js';
 let logger = Logging.getLogger(config.logging);

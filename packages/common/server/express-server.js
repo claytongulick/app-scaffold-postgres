@@ -20,7 +20,7 @@ import methodOverride from 'method-override';
 import path from 'path';
 import session from 'express-session';
 // initalize sequelize with session store
-import * as _store from 'connect-session-sequelize';
+import _store from 'connect-session-sequelize';
 import { getSequelize } from '../db/sequelize.js';
 let SequelizeStore = new _store(session.Store);
 let session_db = getSequelize('session');
@@ -28,8 +28,8 @@ let session_db = getSequelize('session');
 import Session from '../db/models/session.js';
 import program from 'commander';
 import rfs from 'rotating-file-stream';
+import ErrorLog from '../db/models/error_log.js';
 
-const { ErrorLog } = require('../db/models');
 
 /**
  * @typedef {Object} WebLogsConfig Settings for standard web access logging GET, POST, etc...
@@ -77,7 +77,6 @@ export default function ExpressServer(logger, routers, config, middleware) {
     }));
     */
     app.use(helmet.dnsPrefetchControl());
-    app.use(helmet.expectCt());
     app.use(helmet.hidePoweredBy());
     if (config.force_ssl)
         app.use(helmet.hsts());

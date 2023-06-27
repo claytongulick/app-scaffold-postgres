@@ -10,7 +10,6 @@ import cluster from 'cluster';
 import http from 'http';
 import https from 'https';
 import fs from 'fs';
-import winston from 'winston';
 
 /**
  * 
@@ -80,7 +79,7 @@ export default class ClusterServer {
         let environments = ['local','development','qa','production'];
 
         if(environments.indexOf(process.env.NODE_ENV) < 0) {
-            winston.warn('Invalid or missing NODE_ENV value: ' + process.env.NODE_ENV + ', should be one of: ' + environments.join(',') + '. Defaulting to "local".');
+            logger.warn('Invalid or missing NODE_ENV value: ' + process.env.NODE_ENV + ', should be one of: ' + environments.join(',') + '. Defaulting to "local".');
             process.env.NODE_ENV = 'local';
         }
     }
