@@ -1,6 +1,7 @@
 import { DataTypes, Model } from 'sequelize';
 import PatchableModel from 'json-patch-sequelize';
 import { getSequelize } from '../sequelize.js';
+import {Sequelize} from 'sequelize';
 
 let schema = {
     /**
@@ -150,7 +151,7 @@ let schema = {
 }
 
 /**
- * @type {typeof import('sequelize').Model}
+ * @type {Model}
  */
 class User extends PatchableModel {
     async setPassword(password) {

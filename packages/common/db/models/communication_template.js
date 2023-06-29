@@ -1,6 +1,7 @@
-import {PatchableModel} from 'json-patch-sequelize';
-import * as handlebars from 'handlebars';
-import * as handlebars_helpers from 'handlebars-helpers';
+import PatchableModel from 'json-patch-sequelize';
+import { DataTypes } from 'sequelize';
+import handlebars from 'handlebars';
+import handlebars_helpers from 'handlebars-helpers';
 import { getSequelize } from '../sequelize.js';
 handlebars_helpers.string();
 

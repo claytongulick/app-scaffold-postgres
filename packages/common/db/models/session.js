@@ -51,7 +51,7 @@ class Session extends Model {
 /**
  * This is a different connection URI from other models
  */
-let sequelize = getSequelize('app');
+let sequelize = getSequelize('session');
 
 let model_options = {
     sequelize, // We need to pass the connection instance

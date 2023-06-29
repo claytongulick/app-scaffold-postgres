@@ -26,7 +26,7 @@ let SequelizeStore = new _store(session.Store);
 let session_db = getSequelize('session');
 //This is needed, even though Session isn't used in order to register the model with Sequelize
 import Session from '../db/models/session.js';
-import program from 'commander';
+import { program } from 'commander';
 import rfs from 'rotating-file-stream';
 import ErrorLog from '../db/models/error_log.js';
 

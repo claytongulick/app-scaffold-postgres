@@ -1,7 +1,6 @@
-import {html, render} from 'lit/html.js';
+import {html, render} from 'lit-html';
 import ApplicationState from 'applicationstate';
 import {Broker} from 'databroker';
-import Messaging from 'common/ui/utility/messaging';
 
 class ScenePassword extends HTMLElement {
     constructor() {
@@ -73,8 +72,10 @@ class ScenePassword extends HTMLElement {
         let password = this.querySelector('#login_password').value;
         if(!username)
             router.push('/');
-        if(!password)
-            Messaging.toast('Please enter a password to log in');
+        if(!password) {
+            let toaster = document.querySelector('app-toaster');
+            toaster.toas('Please enter a password to log in')
+        }
 
         try {
             await this.broker.post(`/api/password`, { username, password });
