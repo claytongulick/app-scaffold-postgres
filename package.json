@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.3.0",
-    "databroker": "^0.2.8",
+    "databroker": "^0.2.9",
     "dotenv": "^16.1.0",
     "lit-html": "^2.7.4",
     "n8n": "^0.228.2",

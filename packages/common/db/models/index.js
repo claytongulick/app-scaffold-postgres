@@ -10,6 +10,7 @@ import NotificationChannel from './notification_channel.js';
 import Notification from './notification.js';
 import Setting from './setting.js';
 import User from './user.js';
+import Session from './session.js';
 
 export  {
   Activity,
@@ -24,4 +25,5 @@ export  {
   Notification,
   Setting,
   User,
+  Session
 };

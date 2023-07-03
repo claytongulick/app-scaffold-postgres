@@ -8,7 +8,10 @@ export default async (options, commander) => {
         /**
          * @type {typeof import('sequelize').Model}
          */
-        await User.create(user);
+        let password = user.password;
+        delete user['password']
+        let new_user = await User.create(user);
+        await new_user.setPassword(password);
     }
 
     for(let template of templates) {

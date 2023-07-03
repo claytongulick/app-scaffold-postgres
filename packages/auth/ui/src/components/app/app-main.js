@@ -7,15 +7,24 @@ import {html, render} from 'lit-html';
 
 import {Broker} from 'databroker';
 
-import {Router} from '@vaadin/router';
 import AppToaster from 'common/ui/components/app-toaster.js';
 
 import SceneHome from '../scene/scene-home';
 import ScenePassword from '../scene/flows/password/scene-password';
 import SceneLoginOTP from '../scene/flows/otp/scene-login-otp';
 import ApplicationState from 'applicationstate';
+import {init, Router} from 'common/ui/utility/lib-router.js';
 
 const ROUTES = [
+    {
+        path: '/redirect(.*)',
+        action: async (ctx, commands) => {
+            debugger;
+            Router.setTriggers([{activate: () => {}}])
+            
+            window.location.pathname = ctx.pathname;
+        }
+    },
     { path: "/", component: "scene-home" },
     { path: "/password", component: "scene-password" },
     { path: "/otp", component: "scene-login-otp" },
@@ -92,9 +101,7 @@ class ComponentMain extends HTMLElement {
         if (this._router_initialized) return;
         requestAnimationFrame(() => {
             let outlet = this.querySelector('#main-router-outlet');
-            let router = new Router(outlet, {enableNativeViewTransitions: true});
-            this.router = router;
-            router.setRoutes(ROUTES);
+            init(outlet, ROUTES);
             this._router_initialized = true;
             document.getElementById("main-view").addEventListener("click", () => {
                 this.handleMainViewClick();
@@ -117,5 +124,5 @@ class ComponentMain extends HTMLElement {
     }
 }
 
-customElements.define("component-main", ComponentMain);
+customElements.define("app-main", ComponentMain);
 export default ComponentMain;

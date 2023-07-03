@@ -2,6 +2,7 @@ import { DataTypes, Model } from 'sequelize';
 import PatchableModel from 'json-patch-sequelize';
 import { getSequelize } from '../sequelize.js';
 import {Sequelize} from 'sequelize';
+import Encryption from '../../server/encryption.js';
 
 let schema = {
     /**
@@ -155,7 +156,6 @@ let schema = {
  */
 class User extends PatchableModel {
     async setPassword(password) {
-        let Encryption = require('../../server/encryption');
         let {hash, salt} = await Encryption.hash(password);
         this.hash = hash;
         this.salt = salt;
@@ -163,7 +163,6 @@ class User extends PatchableModel {
     }
 
     async checkPassword(password) {
-        let Encryption = require('../../server/encryption');
         return await Encryption.verifyPassword(this.hash, password, this.salt);
     }
 

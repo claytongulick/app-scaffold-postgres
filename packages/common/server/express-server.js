@@ -242,7 +242,7 @@ export default function ExpressServer(logger, routers, config, middleware) {
 
     //logging error handler
     app.use(async (err, req, res, next) => {
-        logger.error(err.stack);
+        logger.error(err.message + " " + err.stack);
         try {
             await ErrorLog.create({
                 error_type: err.name,

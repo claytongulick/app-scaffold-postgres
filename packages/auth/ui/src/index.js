@@ -25,7 +25,7 @@ Broker.config.default_options.patch.credentials = 'same-origin';
 Broker.config.default_options.del.credentials = 'same-origin';
 
 //the main application component
-import ComponentMain from './components/app/component-main.js';
+import ComponentMain from './components/app/app-main.js';
 
 //load the state from indexedDB
 import ApplicationState from "applicationstate";
