@@ -1,0 +1,32 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Clayton C Gulick",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@braintree/sanitize-url": "^5.0.2",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@vaadin/router": "^1.7.5",
+    "animejs": "^3.2.1",
+    "applicationstate": "^0.3.0",
+    "common": "workspace:*",
+    "express": "^4.17.1",
+    "fido2-lib": "^2.6.8",
+    "glob": "^10.3.0",
+    "handlebars-helpers": "^0.10.0",
+    "passport": "^0.6.0",
+    "rollup-plugin-import-css": "^3.3.1",
+    "rollup-plugin-visualizer": "^5.9.2",
+    "twilio": "^3.72.0",
+    "uuid": "^8.3.2"
+  }
+}

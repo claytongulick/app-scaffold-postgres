@@ -13,11 +13,12 @@
  * @email clay@ratiosoftware.com
  */
 
+//get package.json for app info
 import {name as app_name} from '../../package.json';
 
 //configure the databroker to prefix with /admin
 import {Broker} from "databroker";
-Broker.config.base_url='/auth';
+Broker.config.base_url='/app';
 Broker.config.default_options.get.credentials = 'same-origin';
 Broker.config.default_options.put.credentials = 'same-origin';
 Broker.config.default_options.post.credentials = 'same-origin';

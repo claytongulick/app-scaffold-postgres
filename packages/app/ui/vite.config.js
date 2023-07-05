@@ -4,7 +4,7 @@ import '../../../load-env.js';
 
 /** @type {import('vite').UserConfig} */
 export default {
-    base: "/auth/",
+    base: "/app/",
     plugins: [
         visualizer(),
         /*
@@ -20,11 +20,15 @@ export default {
         */
     ],
     server: {
-        port: 8090,
+        port: 8091,
 	host: "0.0.0.0",
         watch: true,
         hmr: false,
         proxy: {
+            "^/app/api": {
+                target: `http://127.0.0.1:${process.env.APP_HTTP_PORT}/`,
+                changeOrigin: true,
+            },
             "^/auth/api": {
                 target: `http://127.0.0.1:${process.env.AUTH_HTTP_PORT}/`,
                 changeOrigin: true,
